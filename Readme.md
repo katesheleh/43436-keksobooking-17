@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг» [![Build status][travis-image]][travis-url]
 
 * Студент: [Катерина Шелег](https://up.htmlacademy.ru/javascript/17/user/43436).
-* Наставник: `Неизвестно`.
+* Наставник: `Без наставника`.
 
 ---
 
