@@ -58,6 +58,57 @@ for (var i = 0; i < appartments.length; i++) {
 }
 similarListElement.appendChild(fragment);
 
-document.querySelector('.map').classList.remove('map--faded');
+document.querySelector('.map').classList.add('map--faded');
+
+var mainForm = document.querySelector('.ad-form');
+var mainFormDisabled = document.querySelector('.ad-form--disabled');
+
+var inputElements = mainForm.querySelectorAll('input');
+var selectElements = mainForm.querySelectorAll('select');
+var textareaElements = mainForm.querySelectorAll('textarea');
+var btnElements = mainForm.querySelectorAll('button');
+
+function setFieldStatus(element, status) {
+    for (var i = 0; i < element.length; i++) {
+        element[i].disabled = status;
+    }
+}
+
+setFieldStatus(inputElements, true);
+setFieldStatus(selectElements, true);
+setFieldStatus(textareaElements, true);
+setFieldStatus(btnElements, true);
+
+var inputActive = setFieldStatus(inputElements, false);
+var selectActive = setFieldStatus(selectElements, false);
+var textareaActive = setFieldStatus(textareaElements, false);
+var btnActive = setFieldStatus(btnElements, false);
 
 
+var mapwrapFaded = document.querySelector('.map--faded');
+var mapwrap = document.querySelector('.map');
+var mainpin = document.querySelector('.map__pin--main');
+var addressInput = document.querySelector('#address');
+
+mainpin.addEventListener('click', function () {
+    mapwrap.classList.remove('map--faded');
+    mainForm.classList.remove('ad-form--disabled');
+    inputActive;
+    selectActive;
+    textareaActive;
+    btnActive;
+    addressInput.value = mainpin.style.left.replace('px', '') + ',' + mainpin.style.top.replace('px', '');
+});
+
+mainpin.addEventListener('mouseup', function (evt) {
+    if (evt.keyCode === 13) {
+        mapwrap.classList.remove('map--faded');
+        mainForm.classList.remove('ad-form--disabled');
+        inputActive;
+        selectActive;
+        textareaActive;
+        btnActive;
+        addressInput.value = mainpin.style.top + ',' + mainpin.style.top;
+        addressInput.value = mainpin.style.left.replace('px', '') + ',' + mainpin.style.top.replace('px', '');
+    }
+});
